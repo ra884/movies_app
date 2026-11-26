@@ -3,26 +3,30 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/models/movie_model.dart';
 
 class CustomSeatCard extends StatelessWidget {
-  final MovieModel movie;
-  final SeatModel seat;
+  final String seatNumber;
+  final String status;
+  final VoidCallback onTap;
 
-  const new({super.key, required this.movie, required this.seat});
-
+  const new({
+    super.key,
+    required this.seatNumber,
+    required this.status,
+    required this.onTap,
+  });
   @override
   Widget build(BuildContext context) {
     var isPressed = false;
-    return InkWell(child:Card(
-      color: isPressed
-          ? const Color.fromARGB(255, 120, 117, 117)
-          : Colors.orangeAccent,
-      child: Center(
-        child: Text(
-          "${seat.seatNumber}",
-          style: TextStyle(color: Colors.white),
+    return InkWell(
+      onTap: onTap,
+      child: Card(
+        color: status == "Available"
+            ? const Color.fromARGB(255, 158, 134, 103)
+            : const Color.fromARGB(255, 59, 105, 83),
+        child: Center(
+          child: Text("${seatNumber}", style: TextStyle(color: Colors.white)),
         ),
       ),
-    ) ,);
-    
+    );
   }
 }
 //orange free : gray

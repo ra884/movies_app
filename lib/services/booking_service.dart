@@ -13,7 +13,7 @@ class BookingService {
         data: {
           "seatId": seatId,
           "movieId": movieId,
-          "CustomerName": customerName,
+          "customerName": customerName,
         },
       );
     } on DioException catch (dioError) {

@@ -26,7 +26,7 @@ class Movies {
     final tempList = json["data"]
         .map<MovieModel>(
           (movie) => MovieModel(
-            id: movie["id"],
+            id: movie["id"]??"",
             name: movie["name"],
             poster: movie["poster"],
             showDate: movie["showDate"],

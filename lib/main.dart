@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/providers/booking_provider.dart';
 import 'package:movies_app/providers/movie_provider.dart';
 import 'package:movies_app/screens/home_page.dart';
 import 'package:provider/provider.dart';
@@ -14,12 +15,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (context) => MovieProvider())],
+      providers: [
+        ChangeNotifierProvider(create: (context) => MovieProvider()),
+        ChangeNotifierProvider(create: (context) => BookingProvider()),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           // This is the theme of your application.
-          //
+
           // TRY THIS: Try running your application with "flutter run". You'll see
           // the application has a purple toolbar. Then, without quitting the app,
           // try changing the seedColor in the colorScheme below to Colors.green
