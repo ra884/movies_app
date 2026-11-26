@@ -15,4 +15,7 @@ class MovieService {
       throw Exception(anotherError.toString());
     }
   }
+ static Future<Movies> SearchByName({required String title}) async{
+  
+ }
 }
